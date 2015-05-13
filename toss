@@ -1,0 +1,11 @@
+if [ "$#" -ne 1 ]; then
+  echo "Bad args
+Usage: toss [dir|file]"
+  exit 1
+fi
+
+if [ ! -d ~/Trash ]; then
+  mkdir ~/Trash
+fi
+
+sudo cp -r $1 ~/Trash/$1 && rm -rf $1
