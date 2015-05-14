@@ -12,3 +12,5 @@ TOSS=`pwd`/toss
 sudo ln -s $TOSS /usr/local/bin/.
 
 sudo apt-get install youtube-dl
+YOU=`pwd`/yoump3
+sudo ln -s $YOU /usr/local/bin/.
