@@ -11,6 +11,13 @@ cd $ORIG_PATH
 TOSS=`pwd`/toss
 sudo ln -s $TOSS /usr/local/bin/.
 
-sudo apt-get install youtube-dl
+unamestr=`uname`
+
+if [[ $unamestr == 'Linux' ]]; then
+	sudo apt-get install youtube-dl
+elif [[ $unamestr == 'Darwin' ]]; then
+	brew install youtube-dl
+fi
+
 YOU=`pwd`/yoump3
 sudo ln -s $YOU /usr/local/bin/.
