@@ -10,3 +10,5 @@ sudo ln -s $VBARS /usr/local/bin/.
 cd $ORIG_PATH
 TOSS=`pwd`/toss
 sudo ln -s $TOSS /usr/local/bin/.
+
+sudo apt-get install youtube-dl
