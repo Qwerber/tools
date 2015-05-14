@@ -1,0 +1,12 @@
+#!/bin/bash
+sudo env PATH=$PATH
+ORIG_PATH=`pwd`
+VBARS_PATH=`pwd`/vbars
+VBARS=`pwd`/vbars/vbars
+cd $VBARS_PATH
+nim c vbars.nim
+sudo ln -s $VBARS /usr/local/bin/.
+
+cd $ORIG_PATH
+TOSS=`pwd`/toss
+sudo ln -s $TOSS /usr/local/bin/.
