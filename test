@@ -1,7 +1,0 @@
-#!/bin/bash
-sudo env PATH=$PATH
-VBARS_PATH=`pwd`/vbars
-VBARS='pwd'/vbars/vbars
-cd $VBARS_PATH
-nim c vbars.nim
-sudo ln -s $VBARS /usr/local/bin/.
