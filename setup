@@ -1,11 +1,16 @@
 #!/bin/bash
-sudo env PATH=$PATH
 ORIG_PATH=`pwd`
 VBARS_PATH=`pwd`/vbars
 VBARS=`pwd`/vbars/vbars
 cd $VBARS_PATH
-nim c vbars.nim
-sudo ln -s $VBARS /usr/local/bin/.
+if hash nim 2>/dev/null; then
+	echo "Nim is installed, compiling"
+	nim c vbars.nim > /dev/null
+	sudo ln -s $VBARS /usr/local/bin/.
+else
+    echo "Nim is not installed"
+fi
+
 
 cd $ORIG_PATH
 TOSS=`pwd`/toss
@@ -16,7 +21,12 @@ unamestr=`uname`
 if [[ $unamestr == 'Linux' ]]; then
 	sudo apt-get install youtube-dl
 elif [[ $unamestr == 'Darwin' ]]; then
-	brew install youtube-dl
+	if hash brew 2>/dev/null; then
+		brew install youtube-dl
+	else
+		echo "Brew is not installed, can't get youtube-dl"
+		exit 1
+	fi
 fi
 
 YOU=`pwd`/yoump3
