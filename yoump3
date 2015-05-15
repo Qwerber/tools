@@ -1,2 +1,14 @@
 #!/bin/bash
-youtube-dl -x --audio-format mp3 --audio-quality 0 $1
+if [[ $1 == '-b' ]]; then
+	if [[ $# -ne 2 ]]; then
+		echo -e "Need batch arg\nUsage:\n  yoump3 -b [file]"
+		exit 1
+	else
+		youtube-dl -x --audio-format mp3 --audio-quality 0 --batch $2
+	fi
+elif [[ $# == 1 ]]; then
+	youtube-dl -x --audio-format mp3 --audio-quality 0 $1
+else
+	echo -e "Incorrect args\nUsage:\n  yoump3 [url]\n  yoump3 -b [file]"
+	exit 1
+fi
